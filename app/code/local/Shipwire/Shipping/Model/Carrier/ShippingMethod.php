@@ -3,13 +3,13 @@
 /**
  * Shipwire real-time rating method for Magento
  *
- * Copyright (C) 2012, Shipwire Inc.
+ * Copyright (C) 2013, Shipwire Inc.
  */
 class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model_Carrier_Abstract implements Mage_Shipping_Model_Carrier_Interface
 {
     protected $_code = 'shipwire_shipping';
 
-    protected $_version = 'Magento Rating Module 1.3.2';
+    protected $_version = 'Magento Rating Module 1.3.3';
 
     protected $_apiEndpoint = 'https://api.shipwire.com/exec/RateServices.php';
 
@@ -24,6 +24,18 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
     {
         // skip if not enabled
         if (!$this->getConfigFlag('active')) {
+            return FALSE;
+        }
+
+        /*
+         * Ensure we have a meaningful amount of information to rate with
+         */
+        $shipToCountry = $request->getDestCountryId();
+        if (empty($shipToCountry)) {
+            return FALSE;
+        }
+        $requestItems = $request->getAllItems();
+        if (count($requestItems) == 0) {
             return FALSE;
         }
 
