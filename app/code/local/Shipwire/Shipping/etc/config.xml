@@ -1,27 +1,45 @@
 <?xml version="1.0"?>
 <config>
-  <modules>
-    <Shipwire_Shipping>
-      <version>0.1.0</version>
-    </Shipwire_Shipping>
-  </modules>
- 
-  <global>
-    <models>
-      <shipwire_shipping>
-        <class>Shipwire_Shipping_Model</class>
-      </shipwire_shipping>
-    </models>
- 
-    <resources>
-      <shipwire_shipping_setup>
-        <setup>
-          <module>Shipwire_Shipping</module>
-        </setup>
-        <connection>
-          <use>core_setup</use>
-        </connection>
-      </shipwire_shipping_setup>
-    </resources>
-  </global>
+    <modules>
+        <Shipwire_Shipping>
+            <version>1.3.0</version>
+        </Shipwire_Shipping>
+    </modules>
+
+    <global>
+        <models>
+            <shipwire_shipping>
+                <class>Shipwire_Shipping_Model</class>
+            </shipwire_shipping>
+        </models>
+
+        <resources>
+            <shipwire_shipping_setup>
+                <setup>
+                    <module>Shipwire_Shipping</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </shipwire_shipping_setup>
+        </resources>
+    </global>
+
+    <default>
+        <carriers>
+            <shipwire_shipping>
+                <active>1</active>
+                <allowed_methods>delivery</allowed_methods>
+                <methods>delivery</methods>
+                <sallowspecific>0</sallowspecific>
+                <model>shipwire_shipping/carrier_ShippingMethod</model>
+                <name>Shipwire</name>
+                <title>Real-time Shipping Rates</title>
+                <specificerrmsg>
+                    This shipping method is currently unavailable.
+                </specificerrmsg>
+                <handling_type>F</handling_type>
+            </shipwire_shipping>
+        </carriers>
+    </default>
 </config>

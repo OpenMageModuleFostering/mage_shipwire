@@ -22,6 +22,18 @@ class Shipwire_Shipping_Model_Carrier_Service {
 			array(
 				'value' => 'INTL',
 				'label' => 'International Service'
+			),
+			array(
+				'value' => 'E-INTL',
+				'label' => 'International Economy Service'
+			),
+			array(
+				'value' => 'PL-INTL',
+				'label' => 'International plus Service'
+			),
+			array(
+				'value' => 'PM-INTL',
+				'label' => 'International Premium Service'
 			)
 		);
     }

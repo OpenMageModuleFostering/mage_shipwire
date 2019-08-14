@@ -1,18 +1,33 @@
 <?xml version="1.0"?>
 <package>
     <name>Mage_Shipwire</name>
-    <version>1.1.2</version>
+    <version>1.3.0</version>
     <stability>stable</stability>
     <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
     <channel>community</channel>
     <extends/>
     <summary>Shipwire Extension</summary>
-    <description>This includes shipwire shipping rating service</description>
-    <notes>Shipwire Shipping Rating API integrated</notes>
-    <authors><author><name>Shipwire</name><user>auto-converted</user><email>chang+dev@shipwire.com</email></author></authors>
-    <date>2010-02-02</date>
-    <time>01:07:08</time>
-    <contents><target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Shipwire_Shipping.xml" hash="89ae766499a54d75ac436f50efc2496c"/></dir></dir></dir></target><target name="magelocal"><dir name="Shipwire"><dir name="Shipping"><dir name="etc"><file name="config.xml" hash="1f073aae242b24b08032b22abf6c98c4"/><file name="system.xml" hash="0e5b1aafaa66a8d9a855078c76906568"/></dir><dir name="Model"><dir name="Carrier"><file name="Service.php" hash="aaceaced3d084b1130dc7d97c22ba140"/><file name="ShippingMethod.php" hash="c68e5fee998bd5c571b4ab4d5f4ffd2a"/></dir></dir></dir></dir></target></contents>
+    <description>Shipwire Rating API shipping method</description>
+    <notes>Shipwire Shipping Rating API integrated&#xD;
+&#xD;
+1.2.4 Added multiple Intl support&#xD;
+&#xD;
+1.2.2&#xD;
+- Fixed issue with encoding of rate request&#xD;
+&#xD;
+1.2.1&#xD;
+- Fixed issue with ship-to postcode not passing&#xD;
+&#xD;
+1.2.5&#xD;
+- Fixed PHP coding error&#xD;
+&#xD;
+1.3.0&#xD;
+- Added multiple currency support&#xD;
+- Fixed problem some installs had with Invoicing</notes>
+    <authors><author><name>Shipwire</name><user>Shipwire</user><email>magento-dev@shipwire.com</email></author></authors>
+    <date>2012-08-03</date>
+    <time>22:14:20</time>
+    <contents><target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Shipwire_Shipping.xml" hash="22ed62daa00faeb3219b05484c5a02a4"/></dir></dir></dir></target><target name="magelocal"><dir name="Shipwire"><dir name="Shipping"><dir name="Model"><dir name="Carrier"><file name="Service.php" hash="1499ae366ebd44d49356230248fea53e"/><file name="ShippingMethod.php" hash="2077ad47048b3db79e61dd5ef20e3be2"/></dir></dir><dir name="etc"><file name="config.xml" hash="05bd86d2b0d072417c0bcefdd2c08399"/><file name="system.xml" hash="4f787402d22f2d6330225f291f3bf8e2"/></dir></dir></dir></target></contents>
     <compatible/>
-    <dependencies/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><package><name></name><channel>connect.magentocommerce.com/core</channel><min></min><max></max></package><extension><name>Core</name><min></min><max></max></extension></required></dependencies>
 </package>
