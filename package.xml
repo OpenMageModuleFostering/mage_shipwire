@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Mage_Shipwire</name>
-    <version>1.3.3</version>
+    <version>1.3.4</version>
     <stability>stable</stability>
     <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
     <channel>community</channel>
@@ -32,11 +32,14 @@
 - Removed Core dependency&#xD;
 &#xD;
 1.3.3&#xD;
-- Performance tuning when missing key address into needed to rate orders, like no country</notes>
+- Performance tuning when missing key address into needed to rate orders, like no country&#xD;
+&#xD;
+1.3.4&#xD;
+- Support for Free Shipping.  Also support for handling fees.</notes>
     <authors><author><name>Shipwire</name><user>Shipwire</user><email>magento-dev@shipwire.com</email></author></authors>
-    <date>2013-01-07</date>
-    <time>20:35:30</time>
-    <contents><target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Shipwire_Shipping.xml" hash="22ed62daa00faeb3219b05484c5a02a4"/></dir></dir></dir></target><target name="magelocal"><dir name="Shipwire"><dir name="Shipping"><dir name="Model"><dir name="Carrier"><file name="Service.php" hash="1499ae366ebd44d49356230248fea53e"/><file name="ShippingMethod.php" hash="cca2a70767bdfdca18be00aed5efe79b"/></dir></dir><dir name="etc"><file name="config.xml" hash="05bd86d2b0d072417c0bcefdd2c08399"/><file name="system.xml" hash="4f787402d22f2d6330225f291f3bf8e2"/></dir></dir></dir></target></contents>
+    <date>2013-06-19</date>
+    <time>18:59:06</time>
+    <contents><target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Shipwire_Shipping.xml" hash="22ed62daa00faeb3219b05484c5a02a4"/></dir></dir></dir></target><target name="magelocal"><dir name="Shipwire"><dir name="Shipping"><dir name="Model"><dir name="Carrier"><file name="Free.php" hash="f24f33a39dd4d457d41e2e13aa4dc560"/><file name="Service.php" hash="5cf9d3dbc764a42aa9260f898c67f623"/><file name="ShippingMethod.php" hash="850fa4e118c3758cec806811410e0671"/></dir></dir><dir name="etc"><file name="config.xml" hash="05bd86d2b0d072417c0bcefdd2c08399"/><file name="system-save.xml" hash="4c2dbe53aae8ae812325f642eee60258"/><file name="system.xml" hash="391e5f95aecb17f219a54cbf9ad8f34f"/></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><package><name></name><channel>connect.magentocommerce.com/core</channel><min></min><max></max></package></required></dependencies>
 </package>

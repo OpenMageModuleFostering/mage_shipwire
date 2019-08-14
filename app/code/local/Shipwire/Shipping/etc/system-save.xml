@@ -72,9 +72,8 @@
                             <show_in_store>0</show_in_store>
                         </free_shipping_subtotal>                        
                         <free_method translate="label">
-                            <label>Free Method</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>shipwire_shipping/carrier_free</source_model>
+                            <label>Free Method (Use service code above like GD)</label>
+                            <frontend_type>text</frontend_type>
                             <frontend_class>free-method</frontend_class>
                             <sort_order>200</sort_order>
                             <show_in_default>1</show_in_default>

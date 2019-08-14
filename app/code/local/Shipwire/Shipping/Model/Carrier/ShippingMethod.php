@@ -13,7 +13,7 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
 
     protected $_apiEndpoint = 'https://api.shipwire.com/exec/RateServices.php';
 
-
+    protected $_rawRequest = NULL;
     /**
      * Collect rates for this shipping method based on information in $request
      *
@@ -22,6 +22,8 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
      */
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
+        $this->_rawRequest = $request;
+        
         // skip if not enabled
         if (!$this->getConfigFlag('active')) {
             return FALSE;
@@ -63,17 +65,72 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
             $method = Mage::getModel('shipping/rate_result_method');
             $method->setCarrier($this->_code);
             $method->setCarrierTitle($this->getConfigData('title'));
+            
+            // This hook allows pricing overrides, free shipping, handeling, etc...
+            $price = $this->getMethodPrice($rMethod['amount'], $rMethod['code']);
+            
             $method->setMethod($rMethod['code']);
             $method->setMethodTitle($rMethod['title']);
             $method->setCost($rMethod['amount']);
-            $method->setPrice($rMethod['amount']);
+            $method->setPrice($price);
 
             $result->append($method);
         }
-
-        return $result;
+        $this->_result = $result;
+        $this->_updateFreeMethodQuote($request);
+        return $this->_result;
+    }
+    public function getMethodPricee($cost, $method='')
+    {
+        if ($method == $this->getConfigData($this->_freeMethod) && $this->getConfigData('free_shipping_enable')
+            && $this->getConfigData('free_shipping_subtotal') <= $this->_rawRequest->getBaseSubtotalInclTax()
+        ) {
+            $price = '0.00';
+        } else {
+            $price = $cost;
+        }
+        return $price;
     }
 
+    /**
+     * Override this for Shipwire.  We only quote $0 shipping cost if all the items in the cart qualify for free shipping
+     * @param Mage_Shipping_Model_Rate_Request $request
+     * @return null
+     */
+    protected function _updateFreeMethodQuote($request)
+    {
+//      echo "getFreeMethodWeight: " . $request->getFreeMethodWeight();
+//      echo "hasFreeMethodWeight: " . $request->hasFreeMethodWeight();
+//      echo "getPackageWeight: " . $request->getPackageWeight();
+        
+        if ($request->getFreeMethodWeight() == $request->getPackageWeight() || !$request->hasFreeMethodWeight()) {
+            return;
+        }
+        
+        $freeMethod = $this->getConfigData($this->_freeMethod);
+        if (!$freeMethod) {
+            return;
+        }
+        $freeRateId = false;
+
+        if (is_object($this->_result)) {
+            foreach ($this->_result->getAllRates() as $i=>$item) {
+                if ($item->getMethod() == $freeMethod) {
+                    $freeRateId = $i;
+                    break;
+                }
+            }
+        }
+
+        if ($freeRateId === false) {
+            return;
+        }
+        
+        if ($request->getFreeMethodWeight() == 0) {        // If the entire order has no weight because it is free then set the price to 0
+            $this->_result->getRateById($freeRateId)->setPrice(0);
+        }
+
+    }
 
     public function getAllowedMethods()
     {

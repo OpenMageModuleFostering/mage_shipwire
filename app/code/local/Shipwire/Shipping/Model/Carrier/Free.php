@@ -1,23 +1,23 @@
 <?php
-class Shipwire_Shipping_Model_Carrier_Service {
+class Shipwire_Shipping_Model_Carrier_Free {
     public function toOptionArray()
     {
 		return array(
 			array(
-				'value' => '1D',
-				'label' => 'One Day Service (1D)'
-			),
-			array(
-				'value' => '2D',
-				'label' => 'Two Day Service (2D)'
+				'value' => '',
+				'label' => 'Disabled'
 			),
 			array(
 				'value' => 'GD',
 				'label' => 'Ground Service (GD)'
 			),
 			array(
-				'value' => 'FT',
-				'label' => 'Freight Service (FT)'
+				'value' => '2D',
+				'label' => 'Two Day Service (2D)'
+			),
+			array(
+				'value' => '1D',
+				'label' => 'One Day Service (1D)'
 			),
 			array(
 				'value' => 'INTL',
