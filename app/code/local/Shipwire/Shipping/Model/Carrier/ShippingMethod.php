@@ -9,7 +9,7 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
 {
     protected $_code = 'shipwire_shipping';
 
-    protected $_version = 'Magento Rating Module 1.3.1';
+    protected $_version = 'Magento Rating Module 1.3.2';
 
     protected $_apiEndpoint = 'https://api.shipwire.com/exec/RateServices.php';
 
