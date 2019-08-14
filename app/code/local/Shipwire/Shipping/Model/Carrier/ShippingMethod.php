@@ -9,7 +9,7 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
 {
     protected $_code = 'shipwire_shipping';
 
-    protected $_version = 'Magento Rating Module 1.3.0';
+    protected $_version = 'Magento Rating Module 1.3.1';
 
     protected $_apiEndpoint = 'https://api.shipwire.com/exec/RateServices.php';
 
@@ -94,7 +94,7 @@ class Shipwire_Shipping_Model_Carrier_ShippingMethod extends Mage_Shipping_Model
             $orderCurrencyCode = $orderCurrency->getCode();
         }
 
-        $orderNumber = md5(serialize($requestVar));
+        $orderNumber = uniqid('magento', TRUE);
 
         $shipToAddress1   = $requestVar->getDestStreet();
         $shipToCity       = $requestVar->getDestCity();
