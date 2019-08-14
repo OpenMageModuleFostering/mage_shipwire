@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Mage_Shipwire</name>
+    <version>1.1.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Shipwire Extension</summary>
+    <description>This includes shipwire shipping rating service</description>
+    <notes>Shipwire Shipping Rating API integrated</notes>
+    <authors><author><name>Shipwire</name><user>auto-converted</user><email>chang+dev@shipwire.com</email></author></authors>
+    <date>2010-02-02</date>
+    <time>01:07:08</time>
+    <contents><target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Shipwire_Shipping.xml" hash="89ae766499a54d75ac436f50efc2496c"/></dir></dir></dir></target><target name="magelocal"><dir name="Shipwire"><dir name="Shipping"><dir name="etc"><file name="config.xml" hash="1f073aae242b24b08032b22abf6c98c4"/><file name="system.xml" hash="0e5b1aafaa66a8d9a855078c76906568"/></dir><dir name="Model"><dir name="Carrier"><file name="Service.php" hash="aaceaced3d084b1130dc7d97c22ba140"/><file name="ShippingMethod.php" hash="c68e5fee998bd5c571b4ab4d5f4ffd2a"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

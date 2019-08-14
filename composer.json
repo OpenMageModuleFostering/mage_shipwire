@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Mage_Shipwire",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Shipwire Extension",
+    "authors": [
+    {
+        "name": "Shipwire",
+        "email": "chang+dev@shipwire.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
